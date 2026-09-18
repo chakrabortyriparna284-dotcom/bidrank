@@ -9,6 +9,7 @@
 |---|---|---|---|---|
 | 1 | Stack and architecture foundation | Phase 1 | in-progress | [0001](../specs/0001-foundational-architecture-and-stack/index.md) |
 | 2 | Core domain data model and ranking engine | Phase 1 | done | [0002](../specs/0002-core-domain-data-model-and-ranking-system/index.md) |
+| 3 | User authentication and SaaS product submission | Phase 1 | in-progress | [0003](../specs/0003-auth-and-product-submission/index.md) |
 
 ## Phase 1: Foundation
 
@@ -38,3 +39,19 @@ Done when: Schema has unique bid checks, timeframe queries return properly sorte
   - [x] Event logging in convex/payments.ts, satisfies AC-5
 - [x] Verify it: /check verify core domain data model and ranking engine
 - [x] Test it: /test core domain data model and ranking engine
+
+### 3. User authentication and SaaS product submission
+
+Intent: Provide secure user registration, session management, and SaaS product submission with logo upload and initial bid validation.
+
+Done when: Users can sign in or sign up, submit a SaaS product with minimum 10 dollar initial bid, and have it saved in awaiting_payment state.
+
+- [x] Design it (spec): [0003](../specs/0003-auth-and-product-submission/index.md)
+- [ ] Build it: /develop user authentication and saas product submission
+  - [ ] Install and configure Convex Auth with schema and HTTP router, satisfies AC-1, AC-2
+  - [ ] Update product schema with storage references and owner indexes, satisfies AC-3
+  - [ ] Implement createProduct, generateUploadUrl, and slug generator in convex/products.ts, satisfies AC-3, AC-4, AC-5
+  - [ ] Build auth modal and sign in component, satisfies AC-1, AC-2
+  - [ ] Build SaaS submission page with form validation and bid input, satisfies AC-3, AC-4
+- [ ] Verify it: /check verify user authentication and saas product submission
+- [ ] Test it: /test user authentication and saas product submission
