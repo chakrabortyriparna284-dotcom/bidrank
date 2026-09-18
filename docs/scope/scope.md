@@ -7,7 +7,7 @@
 
 | # | Feature | Phase | Status | Spec |
 |---|---|---|---|---|
-| 1 | Stack and architecture foundation | Phase 1 | in-progress | [0001](../specs/0001-foundational-architecture-and-stack/index.md) |
+| 1 | Stack and architecture foundation | Phase 1 | done | [0001](../specs/0001-foundational-architecture-and-stack/index.md) |
 | 2 | Core domain data model and ranking engine | Phase 1 | done | [0002](../specs/0002-core-domain-data-model-and-ranking-system/index.md) |
 | 3 | User authentication and SaaS product submission | Phase 1 | done | [0003](../specs/0003-auth-and-product-submission/index.md) |
 | 4 | Public leaderboard and real time outbid experience | Phase 2 | done | [0004](../specs/0004-leaderboard-and-outbid/index.md) |
@@ -26,8 +26,8 @@ Done when: Next.js and Convex connect cleanly with basic layout and provider wir
 
 - [x] Decide the stack (spec): [0001](../specs/0001-foundational-architecture-and-stack/index.md)
 - [x] Scaffold from the decision: /develop stack and architecture foundation
-- [ ] Verify it: /check verify stack and architecture foundation
-- [ ] Test it: /test stack and architecture foundation
+- [x] Verify it: /check verify stack and architecture foundation
+- [x] Test it: /test stack and architecture foundation
 
 ### 2. Core domain data model and ranking engine
 
