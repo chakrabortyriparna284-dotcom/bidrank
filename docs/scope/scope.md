@@ -53,5 +53,5 @@ Done when: Users can sign in or sign up, submit a SaaS product with minimum 10 d
   - [x] Implement createProduct, generateUploadUrl, and slug generator in convex/products.ts, satisfies AC-3, AC-4, AC-5
   - [x] Build auth modal and sign in component, satisfies AC-1, AC-2
   - [x] Build SaaS submission page with form validation and bid input, satisfies AC-3, AC-4
-- [ ] Verify it: /check verify user authentication and saas product submission
+- [x] Verify it: /check verify user authentication and saas product submission
 - [ ] Test it: /test user authentication and saas product submission

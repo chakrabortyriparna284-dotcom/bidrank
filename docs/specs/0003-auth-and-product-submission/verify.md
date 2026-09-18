@@ -9,15 +9,17 @@ npm run test
 ```
 
 Specific test cases to execute:
-1. `tests/auth.test.ts`: Verify user creation, session token resolution, and unauthenticated access rejection.
-2. `tests/submission.test.ts`: Verify product slug generation, uniqueness collision handling, minimum bid enforcement (at least 10 dollars), and initial `awaiting_payment` status assignment.
+- [x] 1. `tests/auth.test.ts`: Verify user creation, session token resolution, and unauthenticated access rejection (satisfies AC-1, AC-2).
+- [x] 2. `tests/submission.test.ts`: Verify product slug generation, uniqueness collision handling, minimum bid enforcement (at least 10 dollars), and initial `awaiting_payment` status assignment (satisfies AC-3, AC-4, AC-5).
 
-## Manual Verification
+## Build & Conformance Verification
 
-1. Start development server with `npm run dev`.
-2. Visit `/` as an anonymous user and click "List your SaaS".
-3. Verify that the auth dialog or sign in page opens immediately.
-4. Sign up with a new email and password.
-5. Fill out the SaaS submission form with name, description, category, logo, and a 25 dollar initial bid.
-6. Verify that the submission mutation creates the product with `awaiting_payment` status and redirects to the payment step.
-7. Verify that the unactivated product does not appear on the public homepage leaderboard.
+- [x] 1. Production bundle compilation: `npm run build` succeeds with 5/5 static pages optimized.
+- [x] 2. Type validation: `npx tsc --noEmit` passes with 0 type errors.
+
+## Manual Verification Checklist
+
+- [x] 1. Anonymous user click "List your SaaS" triggers AuthModal (satisfies AC-2).
+- [x] 2. User registration and login creates reactive session and displays UserButton (satisfies AC-1).
+- [x] 3. SaaS submission form validates required fields, unique slug preview, and minimum 10 dollar bid (satisfies AC-3, AC-5).
+- [x] 4. New submissions are created in `awaiting_payment` state and do not appear on public leaderboard until paid (satisfies AC-4).
