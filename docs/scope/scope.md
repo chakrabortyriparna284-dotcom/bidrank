@@ -47,11 +47,11 @@ Intent: Provide secure user registration, session management, and SaaS product s
 Done when: Users can sign in or sign up, submit a SaaS product with minimum 10 dollar initial bid, and have it saved in awaiting_payment state.
 
 - [x] Design it (spec): [0003](../specs/0003-auth-and-product-submission/index.md)
-- [ ] Build it: /develop user authentication and saas product submission
-  - [ ] Install and configure Convex Auth with schema and HTTP router, satisfies AC-1, AC-2
-  - [ ] Update product schema with storage references and owner indexes, satisfies AC-3
-  - [ ] Implement createProduct, generateUploadUrl, and slug generator in convex/products.ts, satisfies AC-3, AC-4, AC-5
-  - [ ] Build auth modal and sign in component, satisfies AC-1, AC-2
-  - [ ] Build SaaS submission page with form validation and bid input, satisfies AC-3, AC-4
+- [x] Build it: /develop user authentication and saas product submission
+  - [x] Install and configure Convex Auth with schema and HTTP router, satisfies AC-1, AC-2
+  - [x] Update product schema with storage references and owner indexes, satisfies AC-3
+  - [x] Implement createProduct, generateUploadUrl, and slug generator in convex/products.ts, satisfies AC-3, AC-4, AC-5
+  - [x] Build auth modal and sign in component, satisfies AC-1, AC-2
+  - [x] Build SaaS submission page with form validation and bid input, satisfies AC-3, AC-4
 - [ ] Verify it: /check verify user authentication and saas product submission
 - [ ] Test it: /test user authentication and saas product submission

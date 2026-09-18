@@ -1,7 +1,7 @@
 # 0003. User Authentication and SaaS Product Submission System
 
 **Date**: 2026-09-18
-**Status**: Proposed
+**Status**: In Progress
 
 ## Summary
 
@@ -107,11 +107,11 @@ Reasoning and options: see [rationale.md](rationale.md).
 
 ## Build plan
 
-1. Install and configure `@convex-dev/auth` with auth schema and HTTP router in `convex/auth.ts` and `convex/http.ts`, satisfies **AC-1**, **AC-2**
-2. Update `convex/schema.ts` with complete product fields, storage references, and owner indexes, satisfies **AC-3**
-3. Create `products:createProduct`, `products:generateUploadUrl`, and slug generator in `convex/products.ts`, satisfies **AC-3**, **AC-4**, **AC-5**
-4. Build authentication UI modal and sign in component with email and social buttons, satisfies **AC-1**, **AC-2**
-5. Build SaaS submission page (`app/submit/page.tsx`) with form validation, image upload, and bid input, satisfies **AC-3**, **AC-4**
+- [x] 1. Install and configure `@convex-dev/auth` with auth schema and HTTP router in `convex/auth.ts` and `convex/http.ts`, satisfies **AC-1**, **AC-2**
+- [x] 2. Update `convex/schema.ts` with complete product fields, storage references, and owner indexes, satisfies **AC-3**
+- [x] 3. Create `products:createProduct`, `products:generateUploadUrl`, and slug generator in `convex/products.ts`, satisfies **AC-3**, **AC-4**, **AC-5**
+- [x] 4. Build authentication UI modal and sign in component with email and social buttons, satisfies **AC-1**, **AC-2**
+- [x] 5. Build SaaS submission page (`app/submit/page.tsx`) with form validation, image upload, and bid input, satisfies **AC-3**, **AC-4**
 
 ## Consequences
 

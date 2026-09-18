@@ -28,11 +28,13 @@ export const fulfillPayment = internalMutation({
     }
 
     const amountInDollars = args.amountPaidInCents / 100;
-    const previousBid = product.currentBid;
-    const newBid = product.currentBid + amountInDollars;
+    const isInitialListing = product.status === "awaiting_payment" || (product.lifetimeAmountPaid || 0) === 0;
+    
+    const previousBid = isInitialListing ? 0 : product.currentBid;
+    const newBid = isInitialListing ? product.currentBid : product.currentBid + amountInDollars;
     const now = Date.now();
 
-    // Compute previous rank
+    // Compute previous rank among active products
     const activeProducts = await ctx.db
       .query("products")
       .withIndex("by_status", (q) => q.eq("status", "active"))
@@ -51,7 +53,7 @@ export const fulfillPayment = internalMutation({
       amount: args.amountPaidInCents,
       currency: "usd",
       status: "succeeded",
-      type: previousBid === 0 ? "initial_bid" : "outbid",
+      type: isInitialListing ? "initial_bid" : "outbid",
       createdAt: now,
     });
 
@@ -74,7 +76,7 @@ export const fulfillPayment = internalMutation({
       dailyBid: (product.dailyBid || 0) + amountInDollars,
       weeklyBid: (product.weeklyBid || 0) + amountInDollars,
       lastBidAt: now,
-      status: product.status === "awaiting_payment" ? "active" : product.status,
+      status: "active",
       updatedAt: now,
     });
 
@@ -83,7 +85,7 @@ export const fulfillPayment = internalMutation({
       p._id === product._id ? { ...p, currentBid: newBid } : p
     );
     if (!updatedActive.some((p) => p._id === product._id)) {
-      updatedActive.push({ ...product, currentBid: newBid });
+      updatedActive.push({ ...product, currentBid: newBid, status: "active" });
     }
     const newSorted = updatedActive.sort((a, b) => b.currentBid - a.currentBid);
     const newRank = newSorted.findIndex((p) => p._id === product._id) + 1;

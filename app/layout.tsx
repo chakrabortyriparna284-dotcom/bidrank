@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
+import { Navbar } from "@/components/navbar";
 
 export const metadata: Metadata = {
   title: "BidRank — Pay your way to the top",
@@ -14,9 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className="min-h-screen bg-background font-sans antialiased">
+      <body className="min-h-screen bg-zinc-950 text-zinc-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-300">
         <ConvexClientProvider>
-          {children}
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-1">{children}</main>
+          </div>
         </ConvexClientProvider>
       </body>
     </html>
