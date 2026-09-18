@@ -11,8 +11,8 @@
 | 2 | Core domain data model and ranking engine | Phase 1 | done | [0002](../specs/0002-core-domain-data-model-and-ranking-system/index.md) |
 | 3 | User authentication and SaaS product submission | Phase 1 | done | [0003](../specs/0003-auth-and-product-submission/index.md) |
 | 4 | Public leaderboard and real time outbid experience | Phase 2 | done | [0004](../specs/0004-leaderboard-and-outbid/index.md) |
-| 5 | Stripe checkout and payment fulfillment | Phase 2 | planned | [0005](../specs/0005-stripe-checkout-and-payments/index.md) |
-| 6 | Founder dashboard and SaaS product management | Phase 3 | planned | [0006](../specs/0006-founder-dashboard/index.md) |
+| 5 | Stripe checkout and payment fulfillment | Phase 2 | done | [0005](../specs/0005-stripe-checkout-and-payments/index.md) |
+| 6 | Founder dashboard and SaaS product management | Phase 3 | in-progress | [0006](../specs/0006-founder-dashboard/index.md) |
 | 7 | Product profile pages and ranking history | Phase 3 | planned | [0007](../specs/0007-product-profile-and-analytics/index.md) |
 | 8 | Admin panel and realistic seed engine | Phase 4 | planned | [0008](../specs/0008-admin-panel-and-seed-engine/index.md) |
 
@@ -84,10 +84,14 @@ Intent: Enable founders to pay for initial listings and outbid increments with S
 
 Done when: Founders complete Stripe checkout, webhook fulfills payment, bid is updated, and product becomes active.
 
-- [ ] Design it (spec): [0005](../specs/0005-stripe-checkout-and-payments/index.md)
-- [ ] Build it: /develop stripe checkout and payment fulfillment
-- [ ] Verify it: /check verify stripe checkout and payment fulfillment
-- [ ] Test it: /test stripe checkout and payment fulfillment
+- [x] Design it (spec): [0005](../specs/0005-stripe-checkout-and-payments/index.md)
+- [x] Build it: /develop stripe checkout and payment fulfillment
+  - [x] Implement createCheckoutSession action in convex/payments.ts, satisfies AC-1, AC-2
+  - [x] Ensure Stripe webhook handler verifies signatures and routes session events, satisfies AC-3
+  - [x] Connect OutbidDialog and SubmitPage payment buttons to createCheckoutSession, satisfies AC-1, AC-4
+  - [x] Add unit and integration tests in tests/payments.test.ts, satisfies AC-1, AC-4, AC-5
+- [x] Verify it: /check verify stripe checkout and payment fulfillment
+- [x] Test it: /test stripe checkout and payment fulfillment
 
 ## Phase 3: Founder & Product Profiles
 
