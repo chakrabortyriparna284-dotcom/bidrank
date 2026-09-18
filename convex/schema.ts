@@ -20,6 +20,8 @@ export default defineSchema({
     demoUrl: v.optional(v.string()),
     currentBid: v.number(), // in dollars
     lifetimeAmountPaid: v.number(), // in dollars
+    dailyBid: v.number(), // rolling 24h bid total in dollars
+    weeklyBid: v.number(), // rolling 7d bid total in dollars
     lastBidAt: v.number(), // timestamp for tie breaking
     totalClicks: v.number(),
     status: v.union(

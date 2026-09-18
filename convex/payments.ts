@@ -32,6 +32,16 @@ export const fulfillPayment = internalMutation({
     const newBid = product.currentBid + amountInDollars;
     const now = Date.now();
 
+    // Compute previous rank
+    const activeProducts = await ctx.db
+      .query("products")
+      .withIndex("by_status", (q) => q.eq("status", "active"))
+      .collect();
+
+    const previousSorted = [...activeProducts].sort((a, b) => b.currentBid - a.currentBid);
+    const prevIndex = previousSorted.findIndex((p) => p._id === product._id);
+    const previousRank = prevIndex !== -1 ? prevIndex + 1 : undefined;
+
     // Record payment
     await ctx.db.insert("payments", {
       userId: args.userId,
@@ -60,12 +70,34 @@ export const fulfillPayment = internalMutation({
     // Update product bid and activate if awaiting payment
     await ctx.db.patch(args.productId, {
       currentBid: newBid,
-      lifetimeAmountPaid: product.lifetimeAmountPaid + amountInDollars,
+      lifetimeAmountPaid: (product.lifetimeAmountPaid || 0) + amountInDollars,
+      dailyBid: (product.dailyBid || 0) + amountInDollars,
+      weeklyBid: (product.weeklyBid || 0) + amountInDollars,
       lastBidAt: now,
       status: product.status === "awaiting_payment" ? "active" : product.status,
       updatedAt: now,
     });
 
-    return { success: true };
+    // Compute new rank
+    const updatedActive = activeProducts.map((p) =>
+      p._id === product._id ? { ...p, currentBid: newBid } : p
+    );
+    if (!updatedActive.some((p) => p._id === product._id)) {
+      updatedActive.push({ ...product, currentBid: newBid });
+    }
+    const newSorted = updatedActive.sort((a, b) => b.currentBid - a.currentBid);
+    const newRank = newSorted.findIndex((p) => p._id === product._id) + 1;
+
+    // Record immutable bid event
+    await ctx.db.insert("bidEvents", {
+      productId: args.productId,
+      previousRank,
+      newRank,
+      previousBid,
+      newBid,
+      createdAt: now,
+    });
+
+    return { success: true, previousRank, newRank };
   },
 });

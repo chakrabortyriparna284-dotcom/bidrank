@@ -1,7 +1,7 @@
 # 0002. Core domain data model and ranking engine
 
 **Date**: 2026-09-18
-**Status**: Proposed
+**Status**: Accepted
 
 ## Summary
 
