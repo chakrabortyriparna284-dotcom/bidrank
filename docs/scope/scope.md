@@ -12,7 +12,7 @@
 | 3 | User authentication and SaaS product submission | Phase 1 | done | [0003](../specs/0003-auth-and-product-submission/index.md) |
 | 4 | Public leaderboard and real time outbid experience | Phase 2 | done | [0004](../specs/0004-leaderboard-and-outbid/index.md) |
 | 5 | Stripe checkout and payment fulfillment | Phase 2 | done | [0005](../specs/0005-stripe-checkout-and-payments/index.md) |
-| 6 | Founder dashboard and SaaS product management | Phase 3 | in-progress | [0006](../specs/0006-founder-dashboard/index.md) |
+| 6 | Founder dashboard and SaaS product management | Phase 3 | done | [0006](../specs/0006-founder-dashboard/index.md) |
 | 7 | Product profile pages and ranking history | Phase 3 | planned | [0007](../specs/0007-product-profile-and-analytics/index.md) |
 | 8 | Admin panel and realistic seed engine | Phase 4 | planned | [0008](../specs/0008-admin-panel-and-seed-engine/index.md) |
 
@@ -101,10 +101,14 @@ Intent: Provide authenticated founders with an overview of their listed products
 
 Done when: Founders can view and manage their SaaS products on /dashboard.
 
-- [ ] Design it (spec): [0006](../specs/0006-founder-dashboard/index.md)
-- [ ] Build it: /develop founder dashboard and saas product management
-- [ ] Verify it: /check verify founder dashboard and saas product management
-- [ ] Test it: /test founder dashboard and saas product management
+- [x] Design it (spec): [0006](../specs/0006-founder-dashboard/index.md)
+- [x] Build it: /develop founder dashboard and saas product management
+  - [x] Build dashboard page with metric cards and product grid, satisfies AC-1, AC-2, AC-3
+  - [x] Add edit product modal component, satisfies AC-5
+  - [x] Connect quick increase bid action with OutbidDialog, satisfies AC-4
+  - [x] Add unit and component tests in tests/dashboard.test.ts, satisfies AC-1, AC-2, AC-3
+- [x] Verify it: /check verify founder dashboard and saas product management
+- [x] Test it: /test founder dashboard and saas product management
 
 ### 7. Product profile pages and ranking history
 
