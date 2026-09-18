@@ -13,7 +13,7 @@
 | 4 | Public leaderboard and real time outbid experience | Phase 2 | done | [0004](../specs/0004-leaderboard-and-outbid/index.md) |
 | 5 | Stripe checkout and payment fulfillment | Phase 2 | done | [0005](../specs/0005-stripe-checkout-and-payments/index.md) |
 | 6 | Founder dashboard and SaaS product management | Phase 3 | done | [0006](../specs/0006-founder-dashboard/index.md) |
-| 7 | Product profile pages and ranking history | Phase 3 | planned | [0007](../specs/0007-product-profile-and-analytics/index.md) |
+| 7 | Product profile pages and ranking history | Phase 3 | done | [0007](../specs/0007-product-profile-and-analytics/index.md) |
 | 8 | Admin panel and realistic seed engine | Phase 4 | planned | [0008](../specs/0008-admin-panel-and-seed-engine/index.md) |
 
 ## Phase 1: Foundation
@@ -116,10 +116,14 @@ Intent: Provide public /product/[slug] profile pages displaying product details,
 
 Done when: Visitors can inspect individual SaaS profile pages and view their ranking journey.
 
-- [ ] Design it (spec): [0007](../specs/0007-product-profile-and-analytics/index.md)
-- [ ] Build it: /develop product profile pages and ranking history
-- [ ] Verify it: /check verify product profile pages and ranking history
-- [ ] Test it: /test product profile pages and ranking history
+- [x] Design it (spec): [0007](../specs/0007-product-profile-and-analytics/index.md)
+- [x] Build it: /develop product profile pages and ranking history
+  - [x] Build /product/[slug] dynamic profile page with header, metric cards, and competitor context, satisfies AC-1, AC-2, AC-3
+  - [x] Render ranking and bid history timeline using bids:getHistory, satisfies AC-4
+  - [x] Connect OutbidDialog modal trigger, satisfies AC-5
+  - [x] Add unit tests in tests/profile.test.ts, satisfies AC-1, AC-3, AC-4
+- [x] Verify it: /check verify product profile pages and ranking history
+- [x] Test it: /test product profile pages and ranking history
 
 ## Phase 4: Administration & Launch Polish
 
