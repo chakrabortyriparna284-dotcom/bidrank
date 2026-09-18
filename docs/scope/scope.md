@@ -14,7 +14,7 @@
 | 5 | Stripe checkout and payment fulfillment | Phase 2 | done | [0005](../specs/0005-stripe-checkout-and-payments/index.md) |
 | 6 | Founder dashboard and SaaS product management | Phase 3 | done | [0006](../specs/0006-founder-dashboard/index.md) |
 | 7 | Product profile pages and ranking history | Phase 3 | done | [0007](../specs/0007-product-profile-and-analytics/index.md) |
-| 8 | Admin panel and realistic seed engine | Phase 4 | planned | [0008](../specs/0008-admin-panel-and-seed-engine/index.md) |
+| 8 | Admin panel and realistic seed engine | Phase 4 | done | [0008](../specs/0008-admin-panel-and-seed-engine/index.md) |
 
 ## Phase 1: Foundation
 
@@ -133,7 +133,11 @@ Intent: Provide platform administration on /admin and seed database with 15 real
 
 Done when: Admin can review/suspend listings, and database seeds with realistic data.
 
-- [ ] Design it (spec): [0008](../specs/0008-admin-panel-and-seed-engine/index.md)
-- [ ] Build it: /develop admin panel and realistic seed engine
-- [ ] Verify it: /check verify admin panel and realistic seed engine
-- [ ] Test it: /test admin panel and realistic seed engine
+- [x] Design it (spec): [0008](../specs/0008-admin-panel-and-seed-engine/index.md)
+- [x] Build it: /develop admin panel and realistic seed engine
+  - [x] Implement convex/admin.ts with stats query, all products query, and status toggle mutation, satisfies AC-1, AC-2
+  - [x] Implement convex/seed.ts with 15 realistic SaaS products and initial bid events, satisfies AC-3, AC-4, AC-5
+  - [x] Build /admin/page.tsx operator console with metrics cards, seed button, and moderation table, satisfies AC-1, AC-2, AC-3
+  - [x] Add unit and integration tests in tests/admin.test.ts, satisfies AC-1, AC-2, AC-4
+- [x] Verify it: /check verify admin panel and realistic seed engine
+- [x] Test it: /test admin panel and realistic seed engine
